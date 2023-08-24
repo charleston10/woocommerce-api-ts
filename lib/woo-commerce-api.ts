@@ -16,8 +16,6 @@ export const WooCommerceApi = (settings: WcSettings) => {
           params,
         );
 
-        console.log("oauthUrl", oauthUrl);
-
         const response = await fetch(oauthUrl, {
           method: method,
           headers: {
