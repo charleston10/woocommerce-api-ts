@@ -1,7 +1,7 @@
 {
   "name": "woocommerce-api-ts",
-  "version": "0.0.4",
-  "main": "dist/index.js",
+  "version": "0.0.8",
+  "main": "index.ts",
   "repository": "https://github.com/charleston10/woocommerce-api-ts.git",
   "author": "Charleston A. <charleston.anjos@gmail.com>",
   "license": "MIT",
@@ -16,7 +16,8 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
-    "crypto": "^1.0.1"
+    "axios": "^1.4.0",
+    "crypto-browserify": "^3.12.0"
   },
   "devDependencies": {
     "@types/jest": "^29.5.4",
