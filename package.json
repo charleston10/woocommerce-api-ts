@@ -5,6 +5,12 @@
   "repository": "https://github.com/charleston10/woocommerce-api-ts.git",
   "author": "Charleston A. <charleston.anjos@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "jest",
+    "test-coverage": "jest --coverage"
+  },
   "dependencies": {
     "crypto": "^1.0.1"
   },
