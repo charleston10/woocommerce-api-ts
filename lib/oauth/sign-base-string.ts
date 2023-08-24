@@ -1,4 +1,3 @@
-import crypto from "crypto";
 import { bufferToBase64 } from "./buffer-base64";
 
 export async function signBaseString(
@@ -38,6 +37,7 @@ export async function signNodeBaseString(
   baseString: string,
   signingKey: string,
 ) {
+  const crypto = require("crypto");
   const hmac = crypto.createHmac("sha1", signingKey);
   return hmac.update(baseString).digest("base64");
 }
