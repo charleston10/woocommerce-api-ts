@@ -1,5 +1,6 @@
 import { WcSettings } from "./common/model/wc-settings";
 import { generateOAuthUrl } from "./oauth/oauth";
+import axios from "axios";
 
 export const WooCommerceApi = (settings: WcSettings) => {
   return {
@@ -16,14 +17,14 @@ export const WooCommerceApi = (settings: WcSettings) => {
           params,
         );
 
-        const response = await fetch(oauthUrl, {
+        const response = await axios(oauthUrl, {
           method: method,
           headers: {
             "Content-Type": "application/json",
           },
         });
 
-        return response.json();
+        return response.data;
       } catch (e) {
         console.error(`${method} ${url}`, e);
       }
