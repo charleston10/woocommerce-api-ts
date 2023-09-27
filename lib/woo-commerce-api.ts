@@ -18,7 +18,7 @@ export const WooCommerceApi = (settings: WcSettings) => {
           url,
           settings.consumerKey,
           settings.consumerSecret,
-          ...params,
+          params ? params : {},
         );
 
         let config: any = {
