@@ -7,8 +7,8 @@ export const WooCommerceApi = (settings: WcSettings) => {
     request: async (
       method: string,
       endpoint: string,
-      data: any,
-      params: any,
+      requestData?: any,
+      params?: any,
     ) => {
       const url = `${settings.url}/${settings.version}/${endpoint}`;
 
@@ -18,16 +18,24 @@ export const WooCommerceApi = (settings: WcSettings) => {
           url,
           settings.consumerKey,
           settings.consumerSecret,
-          params,
+          ...params,
         );
 
-        const response = await axios(oauthUrl, {
+        let config: any = {
           method: method,
           headers: {
             "Content-Type": "application/json",
           },
-          data: data,
-        });
+        };
+
+        if (requestData) {
+          config = {
+            ...config,
+            data: JSON.stringify(requestData),
+          };
+        }
+
+        const response = await axios(oauthUrl, config);
 
         return response.data;
       } catch (e) {
