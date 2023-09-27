@@ -4,8 +4,12 @@ import axios from "axios";
 
 export const WooCommerceApi = (settings: WcSettings) => {
   return {
-    get: async (endpoint: string, params: any) => {
-      const method = "GET";
+    request: async (
+      method: string,
+      endpoint: string,
+      data: any,
+      params: any,
+    ) => {
       const url = `${settings.url}/${settings.version}/${endpoint}`;
 
       try {
@@ -22,6 +26,7 @@ export const WooCommerceApi = (settings: WcSettings) => {
           headers: {
             "Content-Type": "application/json",
           },
+          data: data,
         });
 
         return response.data;

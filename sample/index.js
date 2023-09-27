@@ -7,6 +7,6 @@ const wc = WooCommerceApi({
   version: "wc/v3",
 });
 
-wc.get("orders").then((orders) => {
+wc.request("GET", "orders").then((orders) => {
   console.log(orders);
 });
