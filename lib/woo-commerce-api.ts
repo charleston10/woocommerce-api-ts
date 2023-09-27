@@ -32,6 +32,7 @@ export const WooCommerceApi = (settings: WcSettings) => {
         return response.data;
       } catch (e) {
         console.error(`${method} ${url}`, e);
+        throw e;
       }
     },
   };
