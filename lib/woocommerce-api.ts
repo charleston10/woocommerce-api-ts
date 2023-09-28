@@ -2,10 +2,14 @@ import { WcSettings } from "./common/model/wc-settings";
 import { generateOAuthUrl } from "./oauth/oauth";
 import axios from "axios";
 
-export const WooCommerceApi = (settings: WcSettings) => {
+export const WoocommerceApi = (settings: WcSettings) => {
   return {
-    get: async (endpoint: string, params: any) => {
-      const method = "GET";
+    request: async (
+      method: string,
+      endpoint: string,
+      requestData?: any,
+      params?: any,
+    ) => {
       const url = `${settings.url}/${settings.version}/${endpoint}`;
 
       try {
@@ -14,19 +18,29 @@ export const WooCommerceApi = (settings: WcSettings) => {
           url,
           settings.consumerKey,
           settings.consumerSecret,
-          params,
+          params ? params : {},
         );
 
-        const response = await axios(oauthUrl, {
+        let config: any = {
           method: method,
           headers: {
             "Content-Type": "application/json",
           },
-        });
+        };
+
+        if (requestData) {
+          config = {
+            ...config,
+            data: JSON.stringify(requestData),
+          };
+        }
+
+        const response = await axios(oauthUrl, config);
 
         return response.data;
       } catch (e) {
         console.error(`${method} ${url}`, e);
+        throw e;
       }
     },
   };

@@ -1,1 +1,1 @@
-export { WooCommerceApi } from "./lib/woo-commerce-api";
+export { WoocommerceApi } from "./lib/woocommerce-api";
