@@ -2,7 +2,7 @@ import { WcSettings } from "./common/model/wc-settings";
 import { generateOAuthUrl } from "./oauth/oauth";
 import axios from "axios";
 
-export const WooCommerceApi = (settings: WcSettings) => {
+export const WoocommerceApi = (settings: WcSettings) => {
   return {
     request: async (
       method: string,
