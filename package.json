@@ -1,6 +1,6 @@
 {
   "name": "woocommerce-api-ts",
-  "version": "0.0.10",
+  "version": "0.1.0",
   "main": "index.ts",
   "repository": "https://github.com/charleston10/woocommerce-api-ts.git",
   "author": "Charleston A. <charleston.anjos@gmail.com>",
